@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>News
+      <div class="pokeball">
+    <img src="//bytebucket.org/dxCog/xcogpics/raw/790bb1697cac4045e92297bfc42fbcfe0c2b5928/pokeball.png" alt="pokeball png">
+  </div>
+  </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="home">
+ <ion-grid>
+   <ion-row> <!-- Top Row -->
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <h2>Welcome to <img src="/../../img/pokemon.svg" alt="Pokemon svg"> Tigard Times</h2>
+          </ion-card-header>
+          <ion-card-content>
+            
+          </ion-card-content>
+        </ion-card>    
+      </ion-col>
+   </ion-row> <!-- End Top Row -->
+
+   <ion-row> <!-- Main Row -->  
+     <ion-col> <!-- Col 0 -->
+       <ion-row *ngFor="let item of newsLeft" >
+         <ion-card (click)="showModal()"> <!-- Ion Card -->
+         <ion-card-head>
+           <h2>{{item.title}}</h2>
+         </ion-card-head>
+         <ion-card-content>
+            {{item.content}}
+         </ion-card-content>
+       </ion-card> <!-- end Ion Card -->
+       </ion-row>
+       
+     </ion-col>
+
+     <ion-col> <!-- Col 1 -->
+      <ion-row *ngFor="let item of middleContent">
+        <ion-col>
+          <h2>{{item.title}}</h2>
+          {{item.content}}
+          contact us at <a href="mailto:pokemongotigard@gmail.com">pokemongotigard@gmail.com</a>
+        </ion-col>
+      </ion-row>
+     </ion-col>
+
+     <ion-col>
+       I am a col
+        <!-- Col 2 -->
+      <ion-row *ngFor="let item of newsRight">
+        <ion-col>
+          <ion-card> <!-- Ion Card -->
+            <ion-card-head>
+              {{item.title}}
+            </ion-card-head>
+            <ion-card-content>
+              {{item.content}}
+            </ion-card-content>
+          </ion-card> <!-- end Ion Card -->
+        </ion-col>
+      </ion-row>  
+     </ion-col>
+   </ion-row> <!-- End Main Row  -->
+  </ion-grid>
+ 
+
+ 
+
+</ion-content>

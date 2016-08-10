@@ -1,0 +1,26 @@
+ <ion-card>
+  <ion-card-header>
+    <ion-row>
+      <ion-col offset-10 width-10>
+        <button button>Last Month</button>
+      </ion-col>
+      <ion-col text-center offset-10 width-30>
+        <h1>August 2012</h1>
+        </ion-col>
+      <ion-col offset-20>
+        <button button>Next Month</button>
+      </ion-col>
+    </ion-row> <!-- End Header Row -->
+    <ion-row>
+      <ion-col *ngFor="let dayName of dayNames" width-15>
+        {{dayName}}
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+  <hr>
+  <ion-row *ngFor="let row of rows">
+    <ion-col class="calendar-tile" *ngFor="let col of row" (click)="showDetails()">
+          {{col.dayNumber}}
+    </ion-col>
+  </ion-row>
+</ion-card>
