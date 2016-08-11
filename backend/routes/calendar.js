@@ -1,14 +1,14 @@
 let express = require('express');
 let router = express.Router();
-let CalendarEvent = require('../models/calendar-event');
+//let CalendarEvent = require('../models/calendar-event');
 let Calendar = require('../models/calendar');
 /**
  * Gets the calendar data object 
  */
-router.get('/', function(res, req, next) {
+router.get('/', function(req, res, next) {
     new Calendar().fetchAll()
     .then(function(calendar) {
-        res.send(articles.toJSON());
+        res.send(calendar.toJSON());
     }).catch(function(er) {
         res.send("This calendar GET escaped! " + er);
     }) 
@@ -19,7 +19,7 @@ router.get('/', function(res, req, next) {
  * @param {req} body
  * 
  */
-router.post('/', function(res, req, next) {
+router.post('/', function(req, res, next) {
     new CalendarEvent({
         // set body vals to model vals
         
@@ -30,3 +30,5 @@ router.post('/', function(res, req, next) {
         res.send('calendar error ' + er);
     })
 });
+
+module.exports = router;

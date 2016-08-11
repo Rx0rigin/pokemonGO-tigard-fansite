@@ -5,8 +5,8 @@ let knex = require('knex')({
     client: 'sqlite3',
     connection: {
         filename: './hackd-pok.db'
-    }
+    },
+    debug: true
 });
-let bookshelf = require('bookshelf')(knex);
 
-module.exports = bookshelf;
+module.exports = require('bookshelf')(knex);

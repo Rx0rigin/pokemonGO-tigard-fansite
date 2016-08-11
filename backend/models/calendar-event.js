@@ -1,6 +1,9 @@
+let bookshelf = require('../init/bookshelf');
 let Model = require('./base');
-let CalendarEvents = Model.extend({
-    tablename: 'calendarEvents'
-})
 
-module.exports = CalendarEventModel;
+
+let CalendarEvent = bookshelf.Model.extend({
+    tablename: 'calendarEvent'
+});
+
+module.exports = CalendarEvent;
