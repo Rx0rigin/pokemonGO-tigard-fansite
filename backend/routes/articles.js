@@ -19,8 +19,9 @@ router.get('/', function (req, res, next) {
  * 
  */
 router.post('/', function(req, res, next) {
+    console.dir(req.body);
     let article = new Article();
-    article.set('body', 'Hard Coded');
+    article.set('body', req.body.body);
     article.set('author', req.body.author);
     article.save().then(function savedArticleSuccess(suc) {
       console.log('Aritcle Saved: ' + suc.get('body'));
