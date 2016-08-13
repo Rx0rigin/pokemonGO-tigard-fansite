@@ -3,7 +3,9 @@ let Model = require('./base');
 
 
 let CalendarEvent = bookshelf.Model.extend({
-    tablename: 'calendarEvent'
+    tableName: 'calendarEvent'
+    //,hasTimestamps: true
+
 });
 
 module.exports = CalendarEvent;
