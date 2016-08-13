@@ -1,0 +1,1 @@
+let Model = require('../')

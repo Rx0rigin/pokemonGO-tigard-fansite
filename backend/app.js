@@ -7,8 +7,16 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+let articles = require('./routes/articles');
+let calendar = require('./routes/calendar');
 
 var app = express();
+
+
+//set up db connection and ORM
+//let Article = require('./models/article');
+
+//let bookshelf = require('./init/bookshelf');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/articles', articles);
+app.use('/calendar', calendar);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,9 @@
+let bookshelf = require('../init/bookshelf');
 let Model = require('./base');
 
-let Article = Model.extend({
-    tableName: 'articles'
+let Article = bookshelf.Model.extend({
+    tableName: 'articles',
+    hasTimestamps: true  
 });
 
-module.exports = Articles;
+module.exports = Article;
