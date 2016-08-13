@@ -27,7 +27,7 @@ export class CalendarData {
       // We're using Angular Http provider to request the data,
       // then on the response it'll map the JSON data to a parsed JS object.
       // Next we process the data and resolve the promise with the new data.
-      this.http.get('//localhost:1729/pok-tig-cal')
+      this.http.get('//localhost:9043/calendar')
         .map(res => res.json())
         .subscribe(data => {
           // we've got back the raw data, now generate the core schedule data

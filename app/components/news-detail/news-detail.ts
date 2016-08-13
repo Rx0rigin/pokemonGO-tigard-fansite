@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ViewController} from 'ionic-angular';
-import { NewsData } from '../../providers/news-data/news-data';
+import { NewsService } from '../../providers/news-service/news-service';
 
 /*
   Generated class for the NewsDetail component.
@@ -17,11 +17,17 @@ import { NewsData } from '../../providers/news-data/news-data';
  * Main Component for displaying news articles inside the modals 
  * on the landing page
  */ 
-export class NewsDetail {
+export class NewsDetail implements OnInit {
 
-  text: string;
+  text: string = 'I am a string';
 
-  constructor(private viewController: ViewController) {
+  constructor(private newsServie: NewsService, private viewController: ViewController) {
+
 
   }
+
+  ngOnInit() {
+    console.log("News Detail fired");
+  }
 }
+  
