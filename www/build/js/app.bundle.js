@@ -295,7 +295,7 @@ var NewsPage = (function () {
         for (var i = 0; i < 5; i++) {
             this.newsLeft.push({
                 title: 'News Title: ' + i,
-                content: 'This is content for a news article',
+                content: "This is content for a news article",
                 id: i + 'left'
             });
             this.newsRight.push({
@@ -305,7 +305,7 @@ var NewsPage = (function () {
             });
             this.middleContent.push({
                 title: 'This Could Be Your Ad!',
-                content: 'contact us at pokemongotigard@tigard.com',
+                content: 'contact us at pokemongotigard@gmail.com',
                 id: i + '-mid'
             });
         }
@@ -317,12 +317,9 @@ var NewsPage = (function () {
      * @author {rob} hackd.desgin The iLL Dev
      * @param {provider} NewsService The data component.
      */
-    NewsPage.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        console.log('view INIT fired');
-        this.newsService.getNews()
-            .then(function (articles) { return _this.articles = articles; })
-            .catch(function (error) { return _this.error = error; });
+    NewsPage.prototype.ngDoCheck = function () {
+        console.log('check');
+        //console.dir('check');
     };
     /**
      * ngOnInit sets up the news component's initial data for
@@ -336,7 +333,8 @@ var NewsPage = (function () {
     };
     /**
      * Tap handler that displays a detail-modal for News Articles.
-     * @param {string} aid The identification number for an article.
+     * @param {number} aid The identification number for an article.
+     * @renderer
      */
     NewsPage.prototype.showArticle = function (id) {
         console.log("show Article" + id);
@@ -345,6 +343,15 @@ var NewsPage = (function () {
     NewsPage.prototype.showModal = function () {
         var modal = ionic_angular_1.Modal.create(NewsModal);
         this.navCtrl.present(modal);
+    };
+    /**
+     *  Calls the data service for Article Content
+     */
+    NewsPage.prototype.getArticles = function (articles) {
+        var _this = this;
+        this.newsService.getNews()
+            .then(function (articles) { return _this.articles = articles; })
+            .catch(function (error) { return _this.error = error; });
     };
     NewsPage = __decorate([
         core_1.Component({
@@ -443,7 +450,7 @@ var NewsService = (function () {
     }
     NewsService.prototype.getNews = function () {
         var _this = this;
-        debugger;
+        //debugger;
         console.log('getNews Fired!');
         if (this.data) {
             // already loaded data

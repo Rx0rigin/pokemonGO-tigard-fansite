@@ -16,7 +16,7 @@ export class NewsService {
     this.data = null;
   }
   getNews() {
-    debugger;
+    //debugger;
     console.log('getNews Fired!');
     if (this.data) {
       // already loaded data
